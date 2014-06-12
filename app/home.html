@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Todo List</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <link rel="stylesheet" href="styles/start.css">
+  <link rel="stylesheet" href="styles/chat.css">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body ng-app="myApp" ng-controller="TodoController">
+    <div>
+        <input type="text" placeholder="Nome da TODO" ng-model="formData.message">
+        <button type="submit" data-toggle="modal" ng-click="createTodo()">Adicionar</button>
+    </div>
+    <div>
+        <div ng-repeat="t in todo">
+            {{t.message}}
+            {{t.createdAt}}
+            <button type="button" ng-click="priorityUpdate(t.id)">Priorizar</button>
+            <button type="button" ng-click="deleteTodo(t.id)">Remover</button>
+        </div>
+    </div>
+    
+</body>
+</html>
